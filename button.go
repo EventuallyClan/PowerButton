@@ -14,7 +14,7 @@ func onHandler(w http.ResponseWriter, r *http.Request) {
 	req, _ := http.NewRequest("POST",
 		fmt.Sprintf("https://compute.googleapis.com/compute/v1/projects/silent-space-421/zones/us-central1-a/instances/%s/start", target), nil)
 	resp, err := client.Do(req)
-	log.Print(resp, resp.Status, resp.err)
+	log.Print(resp, resp.Status, err)
 }
 
 func offHandler(w http.ResponseWriter, r *http.Request) {
