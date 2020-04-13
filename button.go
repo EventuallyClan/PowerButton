@@ -18,12 +18,12 @@ func onHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func offHandler(w http.ResponseWriter, r *http.Request) {
+	client := &http.Client{}
 	log.Print("Power button off request.")
 	target := os.Getenv("TARGET")
 	req, _ := http.NewRequest("POST",
 		fmt.Sprintf("https://compute.googleapis.com/compute/v1/projects/silent-space-421/zones/us-central1-a/instances/%s/stop", target), nil)
 	resp, err := client.Do(req)
-	client := &http.Client{}
 	log.Print(resp, resp.Status, err)
 }
 
