@@ -9,7 +9,7 @@ import (
 
 func onHandler(w http.ResponseWriter, r *http.Request) {
 	log.Print("Power button on request.")
-	//target := os.Getenv("TARGET")
+	target := os.Getenv("TARGET")
 	resp, err := http.NewRequest("POST",
 		fmt.Sprintf("https://compute.googleapis.com/compute/v1/projects/silent-space-421/zones/us-central1-a/instances/%s/start", target), nil)
 	log.Print(resp, err)
