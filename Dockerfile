@@ -21,7 +21,12 @@ RUN CGO_ENABLED=0 GOOS=linux go build -mod=readonly -v -o server
 # https://hub.docker.com/_/alpine
 # https://docs.docker.com/develop/develop-images/multistage-build/#use-multi-stage-builds
 FROM alpine:3
-RUN apk add --no-cache ca-certificates
+
+RUN apk add --update --no-cache \
+    bash \
+    curl \
+    ca-certificates \
+    python 
 
 RUN curl https://sdk.cloud.google.com > install.sh && bash install.sh --disable-prompts
 
