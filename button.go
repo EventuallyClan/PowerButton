@@ -25,7 +25,7 @@ func main() {
 	log.Print("Power Button Pushed")
 
 	http.HandleFunc("/on", onHandler)
-	http.HandleFunc("/off", onHandler)
+	http.HandleFunc("/off", offHandler)
 
 	port := os.Getenv("PORT")
 	if port == "" {
