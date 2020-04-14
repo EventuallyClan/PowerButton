@@ -35,7 +35,7 @@ func offHandler(w http.ResponseWriter, r *http.Request) {
 	zone := os.Getenv("ZONE")
 	instance := os.Getenv("INSTANCE")
 
-        resp, err := computeService.Instances.Start(project, zone, instance).Context(ctx).Do()
+        resp, err := computeService.Instances.Stop(project, zone, instance).Context(ctx).Do()
         if err != nil {
                 log.Fatal(err)
         }
