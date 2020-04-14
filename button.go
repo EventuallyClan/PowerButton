@@ -12,8 +12,17 @@ import (
 )
 
 func onHandler(w http.ResponseWriter, r *http.Request) {
-	client := &http.Client{}
-	log.Print("Power button on request.")
+	ctx := context.Background()
+
+        c, err := google.DefaultClient(ctx, compute.CloudPlatformScope)
+        if err != nil {
+                log.Fatal(err)
+        }
+
+        computeService, err := compute.New(c)
+        if err != nil {
+                log.Fatal(err)
+        }
 
 	project := os.Getenv("PROJECT")
 	zone := os.Getenv("ZONE")
@@ -27,8 +36,17 @@ func onHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func offHandler(w http.ResponseWriter, r *http.Request) {
-	client := &http.Client{}
-	log.Print("Power button off request.")
+        ctx := context.Background()
+
+        c, err := google.DefaultClient(ctx, compute.CloudPlatformScope)
+        if err != nil {
+                log.Fatal(err)
+        }
+
+        computeService, err := compute.New(c)
+        if err != nil {
+                log.Fatal(err)
+        }
 	
 	project := os.Getenv("PROJECT")
 	zone := os.Getenv("ZONE")
