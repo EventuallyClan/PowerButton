@@ -5,7 +5,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"context"
 	
 	"golang.org/x/net/context"
         "golang.org/x/oauth2/google"
