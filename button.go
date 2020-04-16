@@ -72,7 +72,7 @@ func statusHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Fprintf(resp.body.status, resp.body.statusMessage, resp.Status)
+	fmt.Fprintf(resp.status, resp.statusMessage)
 }
 
 func main() {
