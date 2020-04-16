@@ -68,11 +68,11 @@ func statusHandler(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 
-	resp, err := computeService.Instances.Status(project, zone, instance).Context(ctx).Do()
+	resp, err := computeService.Instances.Get(project, zone, instance).Context(ctx).Do()
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Fprintf(resp, resp.Status)
+	fmt.Fprintf(resp.body.status, resp.body.statusMessage, resp.Status)
 }
 
 func main() {
