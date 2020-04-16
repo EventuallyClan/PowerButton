@@ -80,6 +80,7 @@ func main() {
 
 	http.HandleFunc("/on", onHandler)
 	http.HandleFunc("/off", offHandler)
+	http.HandleFunc("/status", statusHandler)
 
 	port := os.Getenv("PORT")
 	if port == "" {
